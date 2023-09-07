@@ -1,0 +1,246 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[left=0.5cm, right=0.5cm, top=0.5cm, bottom=0.5cm]{geometry}
+\usepackage{pgfpages}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs} % For tables
+\usepackage{graphicx} % For images
+
+\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]
+
+\title{Physics Formula Sheet}
+\author{Your Name}
+\date{2023/ 2024}
+
+\begin{document}
+	\maketitle
+	
+	\section*{Constants}
+	\begin{tabular}{lll}
+		\toprule
+		Constant & Symbol & Value \\
+		\midrule
+		Speed of light & \( c \) & \( 3.00 \times 10^8 \) m/s \\
+		Gravitational constant & \( G \) & \( 6.674 \times 10^{-11} \) N(m/kg)\(^2\) \\
+		Planck's constant & \( h \) & \( 6.626 \times 10^{-34} \) J.s \\
+		Mass of the electron & \(m_e\) & \(9.10939 \times 10^{-31}\) kg \\
+		Mass of the proton & \(m_p\) & \(1.67262 \times 10^{-27}\) kg \\
+		Charge of the electron & \(-e\) & \(-1.60218 \times 10^{-19}\) C \\
+		Permittivity of free space & \(\epsilon_0\) & \(8.85419 \times 10^{-12}\) C\(^2\)/J m \\
+		Boltzmann constant & \(k_B\) & \(1.38066 \times 10^{-23}\) J/ K \\
+		Avogadro's constant & \(N_A \) & \( 6.022 \times 10 ^ {23} \) 1/mol\\
+		\bottomrule
+	\end{tabular}
+	
+	\section*{Classical Physics}
+\begin{tabular}{ll}
+	\toprule
+	\textbf{Title} & \textbf{Equation} \\
+	\midrule
+	Bragg's Reflection & \( n \lambda = 2d \sin(\theta) \) \\
+	Diffraction (Single Slit) & \( \lambda = d \sin(\theta) \) \\
+	Young's Double Slit & \( \frac{\Delta x}{L} = \frac{ \lambda}{d} \approxeq \sin\theta\) \\
+	Heat Transfer (Fourier's Law) & \( Q = mC_v \Delta T \) \\
+	Continuity Equation & \( \nabla \cdot J = - \frac{d \rho}{dt} \) \\
+	Force of Gravity & \( F = G \frac{m_1 m_2}{r^2} \) \\
+	Coulomb Force & \( F =  \frac{q_1 q_2}{4 \pi \epsilon_0 r^2} \) \\
+	Special Relativity (Time Dilation) & \( E^2 = (pc)^2 + (m_0 c^2)^2 \) \\
+	\bottomrule
+\end{tabular}
+
+	
+	\section*{Nuclear and magnetic physics}
+	\begin{tabular}{ll}
+		{Magnetic Field} & : \(E_B = - \mu B \), \\
+		& \( \mu = \frac{e}{2m} L\)\\
+		& \( F_z = - \frac{\partial V}{\partial z} = \mu \frac{\partial B}{\partial z}  \)\\
+		{Rigid rotator} & : \(E_\text{rot} = \frac{\textbf{L}^2}{2I}\) \\
+		& \( I = \frac{m_1 m_2 }{m_1 + m_2} R^2 \) \\
+		{Radioactive decay} & \( N(t) = N(0) \exp ^ {-\lambda t} = N(0) (\frac{1}{2})^{t/\tau _{1/2}}\)\\
+		& \( \tau _{1/2} = \ln (2) / \lambda\)\\
+	\end{tabular}
+	
+	\section*{Thermodynamics}
+	\subsection*{Black body:}
+	\begin{equation*}
+		D(k) dk = \frac{\partial N(k)}{\partial k} \frac{dk}{V} = \frac{k^2}{\pi^2} dk
+	\end{equation*}
+	\begin{equation*}
+		D(\omega) d\omega = \frac{\omega^2}{\pi^2 c^3} d\omega
+	\end{equation*}
+	\begin{equation*}
+		u(\omega) d\omega = \frac{\omega^2}{\pi^2 c^3} k_B T d\omega \hspace*{3pt}\text{classical limit}
+	\end{equation*}
+		\begin{equation*}
+		u(\omega) d\omega = \frac{\hbar \omega^3}{\pi^2 c^3} \frac{1}{\text{exp}(\frac{\hbar \omega}{k_B T})-1} d\omega
+	\end{equation*}
+	\begin{equation*}
+		I(\omega) = c u(\omega) d\omega
+	\end{equation*}
+	
+	
+	
+	\section*{Quantum Mechanics}
+	\begin{align*}
+		\text{Time-dependent Schrodinger's Equation} & : i\hbar \frac{\partial}{\partial t} \Psi (\vec{x}, t) = [-\frac{\hbar^2}{2m}(\frac{\partial ^2}{\partial x^2} + \frac{\partial ^2}{\partial y ^2} + \frac{\partial^2}{\partial z^2}) + V(x)] \\
+		\text{Energy of a photon} & : E = hf \\
+	\end{align*}
+		\begin{align*}
+		\text{Time-independent Schrodinger's Equation} & : E\phi = \hat{H}\phi = \Big(-\frac{\hbar^2}{2m}\nabla^2 + V(x) \Big)\cdot \phi \\
+		\text{Energy of a photon} & : E = hf \\
+	\end{align*}
+	\begin{align*}
+		\text{Infinite potential well} & 
+	\end{align*}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		\section*{Mathematical equations}
+		\subsection*{Trigonometric functions:}
+		\begin{equation}
+	\int \sin^n ax dx =
+	\nonumber \\ 
+	-\frac{1}{a}{\cos ax} \hspace{2mm}{_2F_1}\left[
+	\frac{1}{2}, \frac{1-n}{2}, \frac{3}{2}, \cos^2 ax
+	\right]
+\end{equation}
+		\begin{equation}
+		\int \sin ^2 ax dx = \frac{x}{2} - \frac{1}{4a} \sin 2ax + C
+	\end{equation}
+	\begin{equation}
+		\int x \sin ^2 ax dx = \frac{x^2}{4} - \frac{x}{4a} \sin 2ax - \frac{1}{8a^2} \cos 2ax + C
+	\end{equation}
+	\begin{equation}
+		\int x^2 \sin^2 x ax dx = \frac{x^3}{6} - (\frac{x^2}{4a} - \frac{1}{8a^3})\sin 2ax - \frac{x}{4a^2} \cos 2ax +C
+	\end{equation}
+	\begin{equation}
+		\int \tan ax dx = - \frac{1}{a} \ln |\cos ax| + C = \frac{1}{a} \ln |\sec ax | +C
+	\end{equation}
+	\begin{equation}
+		\int \frac{\cos ax}{x} dx = \ln |ax| + \sum_{1}^{\infty} (-)^k \frac{(ax)^{2k}}{2k (2k)!} +C
+	\end{equation}
+	\begin{equation}
+		\int \cos ^2 ax dx = \frac{x}{2} + \frac{1}{4a} \sin 2ax + C
+	\end{equation}
+	\begin{equation}
+		\int \sin^3 ax dx = \frac{\cos 3ax}{12a} - \frac{3 \cos ax}{4a} + C
+	\end{equation}
+	\begin{equation}
+		\int \tan^2 x dx = \tan x -x +C
+	\end{equation}
+	\begin{equation}
+		\int \sin ax \cos ax dx = - \frac{\cos^2 ax}{2a} + C
+	\end{equation}
+	\begin{equation}
+		\int x \cos ax dx = \frac{\cos ax}{a^2} + \frac{x \sin ax}{a} + C
+	\end{equation}
+	\begin{equation}
+		\int \cos ax dx = \frac{1}{a} \sin ax + C
+	\end{equation}
+	\begin{equation}
+		\int x \sin ax dx = \frac{\sin ax }{a^2} -\frac{x \cos ax }{a} + C
+	\end{equation}
+	\begin{equation}
+		\int (\sin ax) (\cos^n ax) dx = - \frac{1}{a ( n + 1)} \cos ^{n+1} ax + C
+	\end{equation}
+	
+	
+	\subsection*{Exponential functions:}
+
+		
+		
+		
+		
+		\begin{equation}
+			\int_{-\infty}^\infty e^{-ax^2}\hspace{1pt}\text{d}x = \frac{\sqrt{\pi}}{\sqrt{a}} \hspace*{3pt}(a > 0)
+		\end{equation}
+		\begin{equation}
+			\int_{-\infty}^\infty x e^{-ax^2 + bx}\hspace{1pt}\text{d}x = \frac{\sqrt{\pi} b}{2a^{3/2}} e^{\frac{b^2}{4a}} \hspace{3pt}(\Re(a) > 0)
+		\end{equation}
+		\begin{equation}
+			\int_{-\infty}^\infty x^n e^{-ax} \hspace{1pt} \text{d}x = \begin{cases}
+				\dfrac{\Gamma (n+1)}{a^{n+1}} \hspace*{3pt} (n>-1, a>0)\\[.15in]
+				\dfrac{n!}{a^{n+1}} \hspace*{3pt} (n=0,1,2,..., a>0)
+			\end{cases}
+		\end{equation}
+		
+		\begin{equation}
+			\int_{-\infty}^\infty x^2 e^{-ax^2}\ {dx} = \frac{1}{2} \sqrt{\frac{\pi}{a^3}} \hspace*{3pt} (a > 0)
+		\end{equation}
+		\begin{equation}
+			\int x e^{cx} dx = \left(\frac{x}{c}-\frac{1}{c^2}\right) e^{cx}
+		\end{equation}
+		\begin{equation}
+			\int x^2 e^{cx} dx = \left(\frac{x^2}{c} - \frac{2x}{c^2} + \frac{2}{c^3}\right) e^{cx}
+		\end{equation}
+		\begin{equation}
+			\int x^4 e^{-ax^2}\hspace{1pt} dx = \sqrt{\dfrac{\pi }{a}} \dfrac{3}{4a^2}
+		\end{equation}
+		
+	\section*{Spherical coordinates}
+	\begin{align*}
+		x &= r \sin \theta \cos \phi \\
+		y &= r \sin \theta \sin \phi \\
+		z &= r \cos \phi
+	\end{align*}
+	
+	\vspace{.1in}
+	Volume fraction: 
+	\[ dV = r^2 \sin \theta dr d\theta d\phi \]
+	
+	\vspace{.1in}
+	Solid angle: 
+	\[ d\Omega = \frac{dS_r}{r^2} = \sin\theta d\theta d\phi \]
+	
+	\vspace{.1in}
+	Surface element: 
+	\[ dS_r = r^2 \sin\theta d\theta d\phi \]
+		
+		
+\begin{equation}
+	\nabla f = \frac{\partial f}{\partial r} \vec{r} + \frac{1}{r} \frac{1}{r \sin \theta} \frac{\partial f}{\partial \phi} \vec{\phi}
+\end{equation}
+
+\begin{equation}
+	\operatorname {div} \mathbf {F} =\nabla \cdot \mathbf {F} ={\frac {1}{r^{2}}}{\frac {\partial }{\partial r}}\left(r^{2}F_{r}\right)+{\frac {1}{r\sin \theta }}{\frac {\partial }{\partial \theta }}(\sin \theta \,F_{\theta })+{\frac {1}{r\sin \theta }}{\frac {\partial F_{\varphi }}{\partial \varphi }}.
+\end{equation}
+\begin{equation}
+	\begin{aligned}
+		\nabla \times \mathbf{F} = \frac{1}{r\sin\theta} (\frac{\partial }{\partial \theta} (A_\phi \sin \theta ) - \frac{\partial A_\theta}{\partial \phi}) \vec{r} \\
+		+ \frac{1}{r}(\frac{1}{\sin\theta }\frac{\partial A_r}{\partial \phi} - \frac{\partial}{\partial r }(rA_\phi)) \vec{\theta} \\
+		+ \frac{1}{r} (\frac{\partial}{\partial r}(r A_\phi) - \frac{\partial A_r}{\partial \phi}) \vec{\phi}
+	\end{aligned}
+\end{equation}
+\begin{equation}
+	\begin{aligned}
+		\nabla^2 f = {1 \over r^{2}}{\partial  \over \partial r}\!\left(r^{2}{\partial f \over \partial r}\right)\!+\!{1 \over r^{2}\!\sin \theta }{\partial  \over \partial \theta }\!\left(\sin \theta {\partial f \over \partial \theta }\right)\!+\!{1 \over r^{2}\!\sin ^{2}\theta }{\partial ^{2}f \over \partial \varphi ^{2}} = \\ (\frac{\partial^2}{\partial r^2} + \frac{2}{r} \frac{\partial}{\partial r}) f
+		+ \frac{1}{r^2 \sin \theta }\frac{\partial}{\partial \theta} (\sin \theta \frac{\partial}{\partial \theta})f
+		+ \frac{1}{r^2 \sin ^2 \theta } \frac{\partial ^2}{\partial \phi ^2 } f
+	\end{aligned}
+\end{equation}
+	
+	% Add other sections/topics as needed
+	
+	\section*{Periodic Table}
+	Insert or link to a detailed periodic table here.
+	
+\end{document}
