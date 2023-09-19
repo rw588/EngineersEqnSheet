@@ -2,7 +2,7 @@
 \usepackage[left=0.5cm, right=0.5cm, top=0.5cm, bottom=0.5cm]{geometry}
 \usepackage{pgfpages}
 \usepackage{pdfpages}
-\usepackage{amsmath, amssymb}
+\usepackage{amsmath, amssymb, esint}
 \usepackage{booktabs} % For tables
 \usepackage{graphicx} % For images
 \usepackage{tikz}
@@ -64,6 +64,32 @@
 	\end{tabular}
 	
 	\section*{Thermodynamics}
+	0th law: If two objects are in thermal equilibrium with a third object, then all three objects are in thermal equilibrium with each other.\\
+	1st law: For any process concerning a given system, the change in internal energy $\Delta U$ of that system is equal to the sum of the heat $Q$ transferred to that system and the work $W$ performed on that system, or:\\
+	2nd law: Carnot: Wherever there exists a difference in temperature, motive power can be produced.\\
+	Kelvin: It is impossible for a self acting machine to convey heat from a colder body to a hotter.\\
+	Clausius: Heat cannot flow from a colder to hotter body without another process occurring, connected therewith, simultaneously.\\
+	$T = (\frac{\partial U}{\partial S})_\text{V, N}$\\
+	
+	Energy per mode: $<E_\text{mode}> = \frac{3}{2} k_b T$\\
+	$Q = C \Delta T$ $Q=\int_{T_1}^{T_2}C(T) dT$\\
+	 $L =\frac{Q_\text{latent}}{m}$\\
+	 $\gamma = \frac{C_P}{C_V}$
+	 $d S = \frac{\delta Q_\text{rev}}{T}$\\	
+	
+	\subsection*{Electrostatics and dynamics}
+	$\vec{F} = \sum_{i=1}^{N} \frac{q_0 q_i (\vec{r}-\vec{r_i})}{4\pi \epsilon_0 |\vec{r}-\vec{r_i}|^3}$
+	Torque: $\vec{\tau} = \vec{p} \times \vec{E}$\\
+	Energy of a dipole: $U(\theta) = -\vec{p} \cdot \vec{E}$\\
+	Gauss' law: $ \phi = \oiint_{S} \textbf{E} \cdot d\textbf{A} $ \\
+	Potential: $\Delta V \equiv \frac{\Delta U}{q} = - \int_{C} \vec{E} \cdot d\vec{l}$
+	Energy of a capacitor: $U = \frac{Q^2}{2C}$\\
+	Current: $I = \dot{Q}$\\
+	Potential: $V_b - V_a = -\int_{a}^{b} \vec{E} \cdot d\vec{l}$\\
+	Kirchhoff's rules: 1: $\sum_{j, \text{loop}} \Delta V_j$\\
+	2: $\sum_{j} I_{j, \text{into node}} = 0$\\
+	Magnetic force: $\vec{F} = q\vec{v} \times \vec{B}$\\
+	
 	\subsection*{Black body:}
 	\begin{equation*}
 		D(k) dk = \frac{\partial N(k)}{\partial k} \frac{dk}{V} = \frac{k^2}{\pi^2} dk
