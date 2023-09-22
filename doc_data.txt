@@ -1,0 +1,73 @@
+InfoBegin
+InfoKey: Creator
+InfoValue: TeX
+InfoBegin
+InfoKey: ModDate
+InfoValue: D:20230922102932+02&apos;00&apos;
+InfoBegin
+InfoKey: CreationDate
+InfoValue: D:20230922102932+02&apos;00&apos;
+InfoBegin
+InfoKey: Producer
+InfoValue: pdfTeX-1.40.22
+InfoBegin
+InfoKey: PTEX.Fullbanner
+InfoValue: This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) kpathsea version 6.3.4/dev
+PdfID0: 105d718168cbb6a8da1fe28d1d730f61
+PdfID1: 105d718168cbb6a8da1fe28d1d730f61
+NumberOfPages: 11
+PageMediaBegin
+PageMediaNumber: 1
+PageMediaRotation: 0
+PageMediaRect: 0 0 73.362 62.595
+PageMediaDimensions: 73.362 62.595
+PageMediaBegin
+PageMediaNumber: 2
+PageMediaRotation: 0
+PageMediaRect: 0 0 91.496 53.884
+PageMediaDimensions: 91.496 53.884
+PageMediaBegin
+PageMediaNumber: 3
+PageMediaRotation: 0
+PageMediaRect: 0 0 121.564 55.97
+PageMediaDimensions: 121.564 55.97
+PageMediaBegin
+PageMediaNumber: 4
+PageMediaRotation: 0
+PageMediaRect: 0 0 72.451 56.61
+PageMediaDimensions: 72.451 56.61
+PageMediaBegin
+PageMediaNumber: 5
+PageMediaRotation: 0
+PageMediaRect: 0 0 80.058 52.111
+PageMediaDimensions: 80.058 52.111
+PageMediaBegin
+PageMediaNumber: 6
+PageMediaRotation: 0
+PageMediaRect: 0 0 68.306 55.073
+PageMediaDimensions: 68.306 55.073
+PageMediaBegin
+PageMediaNumber: 7
+PageMediaRotation: 0
+PageMediaRect: 0 0 86.101 77.121
+PageMediaDimensions: 86.101 77.121
+PageMediaBegin
+PageMediaNumber: 8
+PageMediaRotation: 0
+PageMediaRect: 0 0 85.219 77.121
+PageMediaDimensions: 85.219 77.121
+PageMediaBegin
+PageMediaNumber: 9
+PageMediaRotation: 0
+PageMediaRect: 0 0 85.219 77.121
+PageMediaDimensions: 85.219 77.121
+PageMediaBegin
+PageMediaNumber: 10
+PageMediaRotation: 0
+PageMediaRect: 0 0 86.086 74.271
+PageMediaDimensions: 86.086 74.271
+PageMediaBegin
+PageMediaNumber: 11
+PageMediaRotation: 0
+PageMediaRect: 0 0 86.086 74.271
+PageMediaDimensions: 86.086 74.271
