@@ -10,7 +10,50 @@
 \usepackage{pdflscape}
 \usetikzlibrary{circuits.ee.IEC}
 
-\pgfpagesuselayout{4 on 1}[a4paper,border shrink=5mm]
+\pgfpagesdeclarelayout{4 on 1 reordered}
+{
+	\edef\pgfpageoptionheight{\the\paperheight} 
+	\edef\pgfpageoptionwidth{\the\paperwidth}
+	\def\pgfpageoptionborder{0 pt}
+}
+{
+	\pgfpagesphysicalpageoptions
+	{%
+		logical pages=4,%
+		physical height=\pgfpageoptionheight,%
+		physical width=\pgfpageoptionwidth%
+	}
+	\pgfpageslogicalpageoptions{1}
+	{%
+		border shrink=\pgfpageoptionborder,%
+		resized width=.5\pgfphysicalwidth,%
+		resized height=.5\pgfphysicalheight,%
+		center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight}%
+	}%
+	\pgfpageslogicalpageoptions{2}
+	{%
+		border shrink=\pgfpageoptionborder,%
+		resized width=.5\pgfphysicalwidth,%
+		resized height=.5\pgfphysicalheight,%
+		center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight}%
+	}%
+	\pgfpageslogicalpageoptions{3}
+	{%
+		border shrink=\pgfpageoptionborder,%
+		resized width=.5\pgfphysicalwidth,%
+		resized height=.5\pgfphysicalheight,%
+		center=\pgfpoint{.75\pgfphysicalwidth}{.75\pgfphysicalheight}%
+	}%
+	\pgfpageslogicalpageoptions{4}
+	{%
+		border shrink=\pgfpageoptionborder,%
+		resized width=.5\pgfphysicalwidth,%
+		resized height=.5\pgfphysicalheight,%
+		center=\pgfpoint{.75\pgfphysicalwidth}{.25\pgfphysicalheight}%
+	}%
+}
+
+\pgfpagesuselayout{4 on 1 reordered}[a4paper,border shrink=5mm]
 
 \title{Physics Formula Sheet}
 \author{402-0023-01L  Physics}
@@ -39,9 +82,12 @@
 	
 	\section*{Oscillations}
 	\subsection*{Equation of Motion}
+	Undamped simple harmonic oscillator:
+	\( 	m \frac{d^2 x}{dt^2} + kx = 0\)
+	
 	The equation of motion for a damped simple harmonic oscillator is:
 	\[
-	m \frac{d^2 x}{dt^2} + c \frac{dx}{dt} + kx = 0
+	m \frac{d^2 x}{dt^2} + b \frac{dx}{dt} + kx = 0
 	\]
 	%Where:
 	%\begin{itemize}
@@ -52,25 +98,25 @@
 	%\end{itemize}
 	
 	\subsection*{General Solutions}
-	\indent Light damping: (\( c^2 < 4mk \)), the general solution is:\\
+	\indent Light damping: (\( b^2 < 4mk \)), the general solution is:\\
 	\[
-	x(t) = e^{-\frac{c}{2m}t} \left( C_1 \cos(\omega_d t) + C_2 \sin(\omega_d t) \right)
+	x(t) = e^{-\frac{b}{2m}t} \left( C_1 \cos(\omega_d t) + C_2 \sin(\omega_d t) \right)
 	\]
 	Where:
 	\[
-	\omega_d = \sqrt{\frac{k^2}{m^2} - \frac{c^2}{4m^2}}
+	\omega_d = \sqrt{\frac{k^2}{m^2} - \frac{b^2}{4m^2}}
 	\]
 	
-	Critical camping: (\( c^2 = 4mk \)), the general solution is:\\
+	Critical camping: (\( b^2 = 4mk \)), the general solution is:\\
 	\[
-	x(t) = e^{-\frac{c}{2m}t} \left( C_1 + C_2 t \right)
+	x(t) = e^{-\frac{b}{2m}t} \left( C_1 + C_2 t \right)
 	\]
 	
-	Heavy camping: (\( c^2 > 4mk \)), the general solution is:\\
+	Heavy camping: (\( b^2 > 4mk \)), the general solution is:\\
 	\[
-	x(t) = e^{-\frac{c}{2m}t} \left( C_1 e^{\lambda_1} + C_2 e^{\lambda_2} \right)
+	x(t) = e^{-\frac{b}{2m}t} \left( C_1 e^{\lambda_1} + C_2 e^{\lambda_2} \right)
 	\]
-	where \[ \lambda_{1,2} = -\frac{c}{2m} \pm \sqrt{\frac{c^2}{4m^2} - \frac{k^2}{m^2}} \]
+	where \[ \lambda_{1,2} = -\frac{b}{2m} \pm \sqrt{\frac{b^2}{4m^2} - \frac{k^2}{m^2}} \]
 	\subsection*{Graphs}
 \begin{tikzpicture}
 	% Axis
@@ -99,7 +145,7 @@
 	\subsection*{Q Factor}
 	The quality factor, or \( Q \) factor, describes the damping of the system:
 	\[
-	Q = \frac{1}{\frac{c}{2\sqrt{mk}}}
+	Q = \frac{1}{\frac{b}{2\sqrt{mk}}}
 	\]
 	A higher \( Q \) means the system is less damped.
 	
@@ -192,14 +238,23 @@ Heat capacity, $C$: \[ Q = C \Delta T, \quad Q = \int_{T_1}^{T_2} C(T) \, dT \]
 Latent heat, $L$: \[ L  = \frac{Q_\text{latent}}{m} \]
 
 
-Isochoric process (isovolumetric): \[ W = - \int P dV = 0\]
+Isochoric process: \[ W = - \int P dV = 0\]
+\[ \Delta Q = m C_V \Delta T\]
 
 Isothermal process: \[ \Delta T = 0\]
+\[ Q = \Delta U - W = - W = N k_B T_A \ln (\frac{V_B}{V_A})\]
 
 Adiabatic process: \[ dU = \delta W\]
 
 Adiabatic component: \[ \quad \gamma = \frac{C_P}{C_V} \]
 Where P, V indicate at constant pressure/ volume
+
+Polytropic equation for an adiabatic process: \[ pV^\gamma = \text{constant} \]
+
+Efficiencies:\\
+Heat engine: \( \eta = \frac{W}{Q_H}\)
+Heat pump: \( \eta = \frac{Q_H}{W}\)
+Fridge: \( \eta = \frac{Q_C}{W}\)
 
 
 
@@ -288,7 +343,7 @@ Where P, V indicate at constant pressure/ volume
 	Energy of a photon: \( h \nu = E_m - E_n\)
 
 	\begin{align*}
-		\text{Time-dependent Schrodinger's Equation} & : i\hbar \frac{\partial}{\partial t} \Psi (\vec{x}, t) = [-\frac{\hbar^2}{2m}(\frac{\partial ^2}{\partial x^2} + \frac{\partial ^2}{\partial y ^2} + \frac{\partial^2}{\partial z^2}) + V(x)] \\
+		\text{Time-dependent Schrodinger's Equation} & : i\hbar \frac{\partial}{\partial t} \Psi (\vec{x}, t) = [-\frac{\hbar^2}{2m}(\frac{\partial ^2}{\partial x^2} + \frac{\partial ^2}{\partial y ^2} + \frac{\partial^2}{\partial z^2}) + V(x)]\Psi (\vec{x}, t) \\
 	\end{align*}
 	
 	\section*{Special relativity}
