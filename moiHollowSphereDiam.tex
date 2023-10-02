@@ -55,7 +55,16 @@
 		\pic[xscale=1,rotate=\ang-90] at (O) {rotarr};
 		
 		% Adding the label 'l' for the length of the cylinder
-		\draw[|-|, xshift=-0.5*\Rx-0.9cm] (0,0) -- (0,\H) node[midway, left, xshift=-0.1cm] {$l$};
+		\draw[|-|, xshift=-0.5*\Rx-0.9cm] (0,0) -- (0,\H) node[midway, left, xshift=-0.1cm] {$l$};	\begin{tikzpicture}[circuit ee IEC]
+			% Drawing the node
+			\node[contact] (N) at (0,0) {};
+			
+			% Drawing the current arrows and labels
+			\draw[->, thick] (-1,0) -- (N) node[midway,above] {\(I_1\)};
+			\draw[->, thick] (1,0) -- (N) node[midway,above] {\(I_2\)};
+			\draw[->, thick] (0,-1) -- (N) node[midway,right] {\(I_3\)};
+			\draw[->, thick] (0,1) -- (N) node[midway,above] {\(I_4\)};
+		\end{tikzpicture}
 		\draw[myarr] ([yshift=110*\Ry]O) --++ (-112:{\Rx} and {\Ry})
 		node[below=5,left=-7,scale=0.9,opacity=0.6] {\contour{white}{$R_1$}}
 		node[below=5,left=-7,scale=0.9] {$R_1$};
