@@ -9,6 +9,7 @@
 \usetikzlibrary{shapes, calc}
 \usepackage{pdflscape}
 \usetikzlibrary{circuits.ee.IEC}
+\usepackage{caption}
 
 \pgfpagesdeclarelayout{4 on 1 reordered}
 {
@@ -81,9 +82,12 @@
 	\end{tabular}
 	
 	\section*{Oscillations}
+	Hook's Law: \[ F = k x \]
 	\subsection*{Equation of Motion}
 	Undamped simple harmonic oscillator:
-	\( 	m \frac{d^2 x}{dt^2} + kx = 0\)
+	\[	m \frac{d^2 x}{dt^2} + kx = 0\]
+	
+	Standard solution: \[ x(t) = A \sin (\omega_0 t + \phi)\]
 	
 	The equation of motion for a damped simple harmonic oscillator is:
 	\[
@@ -117,6 +121,17 @@
 	x(t) = e^{-\frac{b}{2m}t} \left( C_1 e^{\lambda_1} + C_2 e^{\lambda_2} \right)
 	\]
 	where \[ \lambda_{1,2} = -\frac{b}{2m} \pm \sqrt{\frac{b^2}{4m^2} - \frac{k^2}{m^2}} \]
+	
+	Amplitude of forced oscillations:
+	\[ A = \dfrac{F_0}{\sqrt{m^2(\omega_0^2-\omega^2)^2 + b^2 \omega^2}}\]
+	Phase of forced oscillations:
+	\[ \phi = \arctan [\dfrac{b\omega}{m(\omega_0^2 - \omega^2)}]\]
+	In the limit $ \omega << \omega_0$ \[ A \rightarrow \dfrac{F_0}{m\omega_0^2}, \phi \rightarrow 0\]
+	In the limit $ \omega >> \omega_0$ \[ A \rightarrow \dfrac{F_0}{m\omega^2}, \phi \rightarrow \pi\]
+	When $\omega = \omega_0$ \[ A = \dfrac{F_0}{m\omega_0^2}Q, \phi = \pi/2\]
+	
+
+	
 	\subsection*{Graphs}
 \begin{tikzpicture}
 	% Axis
@@ -128,6 +143,7 @@
 	\draw[blue, dashed, domain=0:4.5, samples=500] plot (\x, {exp(-0.2*\x)});
 	\draw[blue, dashed, domain=0:4.5, samples=500] plot (\x, {-exp(-0.2*\x)});
 	\node[blue, anchor=west] at (5.2,1) {Underdamped};
+	\node[blue, anchor=north] at (3, 1.5) {Decaying envelope};
 	
 	% Critically Damped
 	\draw[red, thick, domain=0:4.5] plot (\x, {exp(-\x)});
@@ -139,24 +155,36 @@
 	
 \end{tikzpicture}
 	
-	\subsection*{Energy}
-	The energy of the system will decrease over time due to the dissipative forces (damping).
+	\subsection*{Pendulum}
+	
+	Torque:
+	\[ \vec{\tau} = \vec{r} \times \vec{F}\]
+	
+	\[
+	 \frac{d^2 \theta}{dt^2} + \frac{rMg}{I} \sin\theta = 0
+	\]
+	\[ \omega_0 = \sqrt{\frac{g}{l}}\]
+	Standard solution (for small angles): \[ A \sin(\omega_0 t + \phi)\] 
+	
+	
 	
 	\subsection*{Q Factor}
 	The quality factor, or \( Q \) factor, describes the damping of the system:
 	\[
-	Q = \frac{1}{\frac{b}{2\sqrt{mk}}}
+	Q = \frac{1}{\frac{b}{2\sqrt{mk}}} = \dfrac{\omega_0}{\Delta \omega}
 	\]
 	A higher \( Q \) means the system is less damped.
+	
 	
 	
 
 	
 \subsection*{Moments of Inertia}
+\[ I = \int r^2 dm\]
 
 Parallel axis theorem:
 \begin{equation}
-	I_O = I_{cg} + m d^2
+	I_0 = I_{cg} + m d^2
 \end{equation}
 Perpendicular axis Theorem: 
 \begin{equation}
@@ -225,12 +253,13 @@ For any process concerning a given system, the change in internal energy \(\Delt
 \end{quote}
 
 Ideal gas law: \[ pV = NkT\]
-
+\[ (p + a(\dfrac{N}{V})^2) (V-bN)  = Nk_BT\]
+Van der Waals equation of state:\\
 \[
 T = \left( \frac{\partial U}{\partial S} \right)_{V, N}
 \]
 
-Energy per degree of freedom: \[ \langle E_\text{mode} \rangle = \frac{1}{2} k_B T \]
+Average energy per particle for p degrees of freedom: \[ \langle E_\text{mode} \rangle = \frac{p}{2} k_B T \]
 
 
 Heat capacity, $C$: \[ Q = C \Delta T, \quad Q = \int_{T_1}^{T_2} C(T) \, dT \]
@@ -252,10 +281,70 @@ Where P, V indicate at constant pressure/ volume
 Polytropic equation for an adiabatic process: \[ pV^\gamma = \text{constant} \]
 
 Efficiencies:\\
-Heat engine: \( \eta = \frac{W}{Q_H}\)
-Heat pump: \( \eta = \frac{Q_H}{W}\)
-Fridge: \( \eta = \frac{Q_C}{W}\)
+Heat engine: \( \epsilon = \frac{W}{Q_H}\)
+Heat pump: \( \epsilon = \frac{Q_H}{W}\)
+Fridge: \( \epsilon = \frac{Q_C}{W}\)
 
+\begin{figure}
+\begin{tikzpicture}
+	[
+	% Corner style
+	corner/.style={ 
+		circle,
+		fill,	
+		inner sep=1pt},
+	% Line with Arrow style
+	arrowline/.style={
+		thick,
+		postaction = decorate,
+		decoration = {markings,
+			mark = at position .6 with \arrow{latex}
+		}
+	},
+	% Pin style
+	every pin/.style = {
+		black!80, 
+		inner sep = 1mm, 
+		align = center,
+		font = \footnotesize, 
+		pin edge = {-latex, thin, line to}},
+	]
+	
+	% Draw axis with labels
+	\draw [latex-latex] (-1,6)  |- (8,-1) 
+	node [pos=.95,below] {Volume}
+	node [pos=0.07,above,rotate=90] {Pressure};
+	
+	% Cycle corners
+	\node[corner,
+	label = {left:$1$}] (1) at (2,5){} ;
+	
+	\node[corner,
+	label = {right:$2$}] (2) at (4.5,4){} ;
+	
+	\node[corner,
+	label = {right:$3$}] (3) at (5.5,1.5){} ;
+	
+	\node[corner,
+	label = {below left:$4$}] (4) at (2.5,2.5){} ;
+	
+	% Curved lines
+	\draw [arrowline,blue!70] (1) to [bend right = 15] 
+	node [pos = .4, pin = {45:Isothermal\\Expansion}] {} (2);
+	
+	\draw [arrowline,red!70 ] (2) to [bend right = 15] 
+	node [pos = .4, pin = {right:Adiabatic\\Expansion}] {}(3);
+	
+	\draw [arrowline,blue!70] (3) to [bend left  = 15] 
+	node [pos = .4, pin = {below:Isothermal\\Compression}] {} (4);
+	
+	\draw [arrowline,red!70 ] (4) to [bend left  = 15] 
+	node [pos = .4, pin = {left:Adiabatic\\Compression}] {} (1);
+	
+\end{tikzpicture}
+\captionsetup{labelformat=empty}
+\caption{Carnot cycle}
+\end{figure}
 
 
 \subsection*{Electrostatics and dynamics}
@@ -265,19 +354,21 @@ Fridge: \( \eta = \frac{Q_C}{W}\)
 	\mathbf{F} = \sum_{i=1}^{N} \frac{q_0 q_i (\mathbf{r}-\mathbf{r_i})}{4\pi \epsilon_0 |\mathbf{r}-\mathbf{r_i}|^3}
 	\]
 	
-	Torque: \( \mathbf{\tau} = \mathbf{p} \times \mathbf{E} \)
+	Electric field: \(\vec{F} = q \vec{E}\)
 	
-	Energy of a dipole: \( U(\theta) = -\mathbf{p} \cdot \mathbf{E} \)
+	Torque: \( \vec{\tau} = \vec{p} \times \vec{E} \)
 	
-	Gauss' law: \( \phi = \oiint_{S} \mathbf{E} \cdot d\mathbf{A} \)
+	Energy of a dipole: \( U(\theta) = -\vec{p} \cdot \vec{E} \)
 	
-	Potential: \( \Delta V \equiv \frac{\Delta U}{q} = - \int_{C} \mathbf{E} \cdot d\mathbf{l} \)
+	Gauss' law: \( \phi = \oiint_{S} \vec{E} \cdot d\vec{A} \)
+	
+	Potential: \( \Delta V \equiv \frac{\Delta U}{q} = - \int_{C} \vec{E} \cdot d\vec{l} \)
 	
 	Energy of a capacitor: \( U = \frac{Q^2}{2C} \)
 	
 	Current: \( I = \dot{Q} \)
 	
-	Potential: \( V_b - V_a = -\int_{a}^{b} \mathbf{E} \cdot d\mathbf{l} \)
+	Potential: \( V_b - V_a = -\int_{a}^{b} \vec{E} \cdot d\vec{l} \)
 	
 	Kirchhoff's rules:
 	1. \( \sum_{j, \text{loop}} \Delta V_j = 0 \)
@@ -317,6 +408,11 @@ Fridge: \( \eta = \frac{Q_C}{W}\)
 	
 	Impedance: \( Z_R = R, \, Z_C = \frac{1}{i \omega C}, \, Z_L = i \omega L \)
 	
+	Impedance in series and parallel:
+	\( Z_\text{series} = \sum_{i=1}^{n}Z_i\), \(\dfrac{1}{Z_\text{parallel}} = \sum_{i=1}^{n}\dfrac{1}{Z_i}\)
+	
+	Ampere's Law: \( \oint_C \vec{B} \cdot \vec{ds} = \mu_0 I_C\)
+	
 	
 	\subsection*{Waves \& Quantum}
 	\begin{align}
@@ -329,6 +425,14 @@ Fridge: \( \eta = \frac{Q_C}{W}\)
 	In electromagnetic waves, the ratio \( B_0 = \frac{E_0}{c} \) holds.
 	
 	Wavenumber: \( \omega = vk \)
+	
+	String wave velocity: \( v = \sqrt{\dfrac{F_T}{\mu}}\)
+	
+	String wave power: \( P_\text{ave} = \frac{1}{2} \mu v \omega ^2 A^2\)
+	
+	Pressure wave speed:\\
+	
+	Bulk: \( v = \sqrt{\frac{B}{\rho}}\), Longitudinal wave: \( v = \sqrt{\frac{E}{\rho}}\),  Transverse/ shear wave: \( v = \sqrt{\frac{G}{\rho}}\)
 	
 	Compton wavelength: \( \lambda_c = \frac{h}{m_e c} \)
 	
@@ -440,20 +544,49 @@ Fridge: \( \eta = \frac{Q_C}{W}\)
 		\(\sigma_f^2 = \langle f^2 \rangle - \langle f \rangle^2\)
 	\end{center}	
 	
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.7\linewidth]{latentHeat1}
-		\caption{}
-		\label{fig:latentheat2}
-	\end{figure}
-	
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.7\linewidth]{latentHeat2}
-		\caption{}
-		\label{fig:latentheat2}
-	\end{figure}
-	
+	\section*{Trigonometry and Taylor}
+\begin{equation*}
+	\cos(\alpha \pm \beta) = \cos \alpha \cos \beta \mp \sin \alpha \sin \beta
+\end{equation*}
+\begin{equation*}
+	\sin(\alpha \pm \beta) = \sin \alpha \cos \beta \pm \cos \alpha \sin \beta
+\end{equation*}
+\begin{align*}
+	\sin x &= x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \frac{x^9}{9!} - \dotso \\
+	&= \sum_{n=0}^\infty (-1)^n \frac{x^{2n + 1}}{(2n + 1)!}
+\end{align*}
+Where \(x \in \mathbb{R}\).
+\begin{align*}
+	\frac{1}{1-x} &= 1 + x + x^2 + x^3 + x^4 + \dotso \\
+	&= \sum_{n=0}^\infty x^n
+\end{align*}
+Where \(x \in (-1,1)\).
+\begin{align*}
+	e^x &= 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \dotso \\
+	&= \sum_{n=0}^\infty \frac{x^n}{n!}
+\end{align*}
+Where \(x \in \mathbb{R}\).
+\begin{align*}
+	\cos x &= 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \frac{x^8}{8!} - \dotso \\
+	&= \sum_{n=0}^\infty (-1)^n \frac{x^{2n}}{(2n)!}
+\end{align*}
+Where \(x \in \mathbb{R}\).
+\begin{align*}
+	\sqrt{1 + x} &= 1 + \frac{1}{2}x - \frac{1}{8}x^2 + \frac{1}{16}x^3 - \frac{5}{128}x^4 + \dots \\
+\end{align*}
 
-	
+
+	\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{latentHeat1}
+	\caption{}
+	\label{fig:latentheat2}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{latentHeat2}
+	\caption{}
+	\label{fig:latentheat2}
+\end{figure}
 \end{document}
